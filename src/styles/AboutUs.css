@@ -1,0 +1,326 @@
+/* About Us Page Styles */
+.about-page {
+  min-height: calc(100vh - 80px);
+  background: linear-gradient(to bottom, var(--background), var(--background-alt));
+}
+
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--spacing-2xl) var(--spacing-lg);
+}
+
+/* Hero Section */
+.about-hero {
+  text-align: center;
+  padding: var(--spacing-2xl) 0;
+  margin-bottom: var(--spacing-2xl);
+  animation: fadeIn 0.6s ease-out;
+}
+
+.about-title {
+  font-size: var(--text-5xl);
+  font-weight: 800;
+  margin-bottom: var(--spacing-md);
+  color: var(--text-primary);
+}
+
+.about-subtitle {
+  font-size: var(--text-xl);
+  color: var(--text-secondary);
+  max-width: 800px;
+  margin: 0 auto;
+  font-weight: 500;
+}
+
+/* Section Styles */
+.about-section {
+  margin-bottom: var(--spacing-2xl);
+  animation: slideInUp 0.6s ease-out;
+}
+
+.section-content {
+  background-color: var(--surface);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-2xl);
+  box-shadow: var(--shadow-md);
+}
+
+.highlight-section .section-content {
+  background: linear-gradient(135deg, rgba(79, 70, 229, 0.05), rgba(129, 140, 248, 0.05));
+  border: 2px solid var(--primary-light);
+}
+
+.section-title {
+  font-size: var(--text-3xl);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-lg);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.section-text {
+  font-size: var(--text-lg);
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-md);
+}
+
+.section-text:last-child {
+  margin-bottom: 0;
+}
+
+/* Problem List */
+.problem-list {
+  list-style: none;
+  margin: var(--spacing-lg) 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.problem-list li {
+  padding-left: var(--spacing-xl);
+  position: relative;
+  font-size: var(--text-base);
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.problem-list li::before {
+  content: '✗';
+  position: absolute;
+  left: 0;
+  color: var(--error);
+  font-weight: 700;
+  font-size: var(--text-xl);
+}
+
+/* Technology Grid */
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-xl);
+}
+
+.tech-card {
+  background-color: var(--background-alt);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  border: 2px solid var(--border-color);
+  transition: all var(--transition-base);
+}
+
+.tech-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary-color);
+}
+
+.tech-icon {
+  font-size: 2.5rem;
+  margin-bottom: var(--spacing-md);
+  display: block;
+}
+
+.tech-title {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.tech-description {
+  font-size: var(--text-base);
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Architecture Diagram */
+.architecture-diagram {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-xl);
+  padding: var(--spacing-xl);
+  background-color: var(--background-alt);
+  border-radius: var(--radius-lg);
+}
+
+.architecture-layer {
+  width: 100%;
+  max-width: 500px;
+  padding: var(--spacing-lg);
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+  color: white;
+  border-radius: var(--radius-lg);
+  text-align: center;
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-base);
+}
+
+.architecture-layer:hover {
+  transform: scale(1.02);
+  box-shadow: var(--shadow-lg);
+}
+
+.architecture-layer h4 {
+  font-size: var(--text-lg);
+  font-weight: 700;
+  margin-bottom: var(--spacing-xs);
+}
+
+.architecture-layer p {
+  font-size: var(--text-sm);
+  opacity: 0.9;
+}
+
+.architecture-arrow {
+  font-size: var(--text-2xl);
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+/* Capabilities Grid */
+.capabilities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-xl);
+}
+
+.capability-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-md);
+  padding: var(--spacing-lg);
+  background-color: var(--background-alt);
+  border-radius: var(--radius-lg);
+  border: 2px solid var(--border-color);
+  transition: all var(--transition-base);
+}
+
+.capability-item:hover {
+  border-color: var(--primary-light);
+  box-shadow: var(--shadow-md);
+}
+
+.capability-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.capability-content {
+  flex: 1;
+}
+
+.capability-content h4 {
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-xs);
+}
+
+.capability-content p {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* CTA Section */
+.about-cta {
+  margin-top: var(--spacing-2xl);
+  animation: fadeIn 0.8s ease-out;
+}
+
+.cta-content {
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+  color: white;
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-2xl);
+  text-align: center;
+  box-shadow: var(--shadow-xl);
+}
+
+.cta-title {
+  font-size: var(--text-3xl);
+  font-weight: 700;
+  margin-bottom: var(--spacing-md);
+}
+
+.cta-text {
+  font-size: var(--text-lg);
+  margin-bottom: var(--spacing-xl);
+  opacity: 0.9;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 1rem 2rem;
+  font-size: var(--text-lg);
+  font-weight: 700;
+  background-color: white;
+  color: var(--primary-color);
+  text-decoration: none;
+  border-radius: var(--radius-full);
+  transition: all var(--transition-base);
+  box-shadow: var(--shadow-lg);
+}
+
+.cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-xl);
+  background-color: var(--background-alt);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .about-container {
+    padding: var(--spacing-lg) var(--spacing-md);
+  }
+  
+  .about-title {
+    font-size: var(--text-3xl);
+  }
+  
+  .about-subtitle {
+    font-size: var(--text-lg);
+  }
+  
+  .section-content {
+    padding: var(--spacing-lg);
+  }
+  
+  .section-title {
+    font-size: var(--text-2xl);
+  }
+  
+  .section-text {
+    font-size: var(--text-base);
+  }
+  
+  .tech-grid,
+  .capabilities-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .architecture-diagram {
+    padding: var(--spacing-lg);
+  }
+  
+  .cta-content {
+    padding: var(--spacing-xl);
+  }
+  
+  .cta-title {
+    font-size: var(--text-2xl);
+  }
+  
+  .cta-text {
+    font-size: var(--text-base);
+  }
+}
