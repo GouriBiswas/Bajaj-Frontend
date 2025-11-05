@@ -1,21 +1,86 @@
-/* About Us Page Styles */
+/* About Us Page Styles - Enhanced Professional Version */
+
+/* Override Header and Footer Background Colors */
+header,
+.header,
+nav,
+footer,
+.footer {
+  background: var(--background) !important;
+  background-color: var(--background) !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+}
+
 .about-page {
   min-height: calc(100vh - 80px);
   background: linear-gradient(to bottom, var(--background), var(--background-alt));
+  position: relative;
+  overflow-x: hidden;
 }
+
+/* Animated Background Elements */
+.about-page::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(79, 70, 229, 0.1), transparent 70%);
+  border-radius: 50%;
+  animation: float 20s ease-in-out infinite;
+  pointer-events: none;
+}
+
 
 .about-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: var(--spacing-2xl) var(--spacing-lg);
+  padding: var(--spacing-2xl) var(--spacing-lg) var(--spacing-lg);
+  position: relative;
+  z-index: 1;
 }
 
-/* Hero Section */
+/* Hero Section with Enhanced Animation */
 .about-hero {
   text-align: center;
   padding: var(--spacing-2xl) 0;
   margin-bottom: var(--spacing-2xl);
-  animation: fadeIn 0.6s ease-out;
+  animation: fadeInDown 0.8s ease-out;
+  position: relative;
+}
+
+/* CSS-Only Laptop Illustration */
+.about-hero::before {
+  content: '';
+  position: absolute;
+  top: -120px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 120px;
+  background: linear-gradient(135deg, #4f46e5 0%, #818cf8 100%);
+  border-radius: 8px 8px 0 0;
+  box-shadow: 
+    0 0 0 6px #1e293b,
+    0 10px 40px rgba(0, 0, 0, 0.3);
+  animation: laptopFloat 3s ease-in-out infinite;
+  opacity: 0.2;
+}
+
+.about-hero::after {
+  content: '';
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 240px;
+  height: 8px;
+  background: #1e293b;
+  border-radius: 0 0 12px 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  animation: laptopFloat 3s ease-in-out infinite;
+  opacity: 0.2;
 }
 
 .about-title {
@@ -23,6 +88,14 @@
   font-weight: 800;
   margin-bottom: var(--spacing-md);
   color: var(--text-primary);
+  background: linear-gradient(135deg, #4f46e5, #818cf8, #4f46e5);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 3s ease infinite;
+  position: relative;
+  display: inline-block;
 }
 
 .about-subtitle {
@@ -31,24 +104,71 @@
   max-width: 800px;
   margin: 0 auto;
   font-weight: 500;
+  animation: fadeIn 1s ease-out 0.3s both;
 }
 
-/* Section Styles */
+/* Section Styles with Stagger Animation */
 .about-section {
   margin-bottom: var(--spacing-2xl);
-  animation: slideInUp 0.6s ease-out;
+  animation: slideInUp 0.8s ease-out both;
+  position: relative;
 }
+
+.about-section:nth-child(1) { animation-delay: 0.1s; }
+.about-section:nth-child(2) { animation-delay: 0.2s; }
+.about-section:nth-child(3) { animation-delay: 0.3s; }
+.about-section:nth-child(4) { animation-delay: 0.4s; }
+.about-section:nth-child(5) { animation-delay: 0.5s; }
 
 .section-content {
   background-color: var(--surface);
   border-radius: var(--radius-xl);
   padding: var(--spacing-2xl);
   box-shadow: var(--shadow-md);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.section-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(79, 70, 229, 0.05), transparent);
+  transition: left 0.6s ease;
+}
+
+.section-content:hover::before {
+  left: 100%;
+}
+
+.section-content:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-xl);
+}
+
+/* CSS-Only Document Icon */
 .highlight-section .section-content {
   background: linear-gradient(135deg, rgba(79, 70, 229, 0.05), rgba(129, 140, 248, 0.05));
   border: 2px solid var(--primary-light);
+}
+
+.highlight-section .section-content::after {
+  content: '';
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 60px;
+  height: 75px;
+  background: linear-gradient(135deg, rgba(79, 70, 229, 0.1), rgba(129, 140, 248, 0.15));
+  border-radius: 4px;
+  box-shadow: 
+    inset 0 0 0 2px rgba(79, 70, 229, 0.2),
+    0 5px 15px rgba(79, 70, 229, 0.1);
+  animation: documentFloat 4s ease-in-out infinite;
 }
 
 .section-title {
@@ -59,6 +179,19 @@
   display: flex;
   align-items: center;
   gap: var(--spacing-sm);
+  position: relative;
+}
+
+.section-title::before {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), transparent);
+  border-radius: 2px;
+  animation: expandWidth 0.8s ease-out 0.5s both;
 }
 
 .section-text {
@@ -66,13 +199,14 @@
   line-height: 1.8;
   color: var(--text-secondary);
   margin-bottom: var(--spacing-md);
+  animation: fadeIn 0.6s ease-out both;
 }
 
 .section-text:last-child {
   margin-bottom: 0;
 }
 
-/* Problem List */
+/* Problem List with Enhanced Animation */
 .problem-list {
   list-style: none;
   margin: var(--spacing-lg) 0;
@@ -87,6 +221,20 @@
   font-size: var(--text-base);
   color: var(--text-secondary);
   line-height: 1.6;
+  opacity: 0;
+  animation: slideInLeft 0.5s ease-out forwards;
+  transition: all 0.3s ease;
+}
+
+.problem-list li:nth-child(1) { animation-delay: 0.1s; }
+.problem-list li:nth-child(2) { animation-delay: 0.2s; }
+.problem-list li:nth-child(3) { animation-delay: 0.3s; }
+.problem-list li:nth-child(4) { animation-delay: 0.4s; }
+.problem-list li:nth-child(5) { animation-delay: 0.5s; }
+
+.problem-list li:hover {
+  transform: translateX(10px);
+  color: var(--text-primary);
 }
 
 .problem-list li::before {
@@ -96,14 +244,16 @@
   color: var(--error);
   font-weight: 700;
   font-size: var(--text-xl);
+  animation: pulse 2s ease-in-out infinite;
 }
 
-/* Technology Grid */
+/* Technology Grid with Card Flip Effect */
 .tech-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: var(--spacing-lg);
   margin-top: var(--spacing-xl);
+  perspective: 1000px;
 }
 
 .tech-card {
@@ -111,12 +261,34 @@
   border-radius: var(--radius-lg);
   padding: var(--spacing-xl);
   border: 2px solid var(--border-color);
-  transition: all var(--transition-base);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  transform-style: preserve-3d;
+}
+
+.tech-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(79, 70, 229, 0.1), transparent 50%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.tech-card:hover::before {
+  opacity: 1;
+  animation: rotate 10s linear infinite;
 }
 
 .tech-card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-lg);
+  transform: translateY(-10px) rotateX(5deg);
+  box-shadow: 
+    0 20px 40px rgba(79, 70, 229, 0.2),
+    0 0 0 1px var(--primary-color);
   border-color: var(--primary-color);
 }
 
@@ -124,6 +296,13 @@
   font-size: 2.5rem;
   margin-bottom: var(--spacing-md);
   display: block;
+  animation: bounceIn 0.6s ease-out both;
+  transition: transform 0.3s ease;
+}
+
+.tech-card:hover .tech-icon {
+  transform: scale(1.2) rotate(5deg);
+  animation: wiggle 0.5s ease-in-out;
 }
 
 .tech-title {
@@ -131,6 +310,11 @@
   font-weight: 700;
   color: var(--text-primary);
   margin-bottom: var(--spacing-sm);
+  transition: color 0.3s ease;
+}
+
+.tech-card:hover .tech-title {
+  color: var(--primary-color);
 }
 
 .tech-description {
@@ -139,7 +323,7 @@
   line-height: 1.6;
 }
 
-/* Architecture Diagram */
+/* Architecture Diagram with Flow Animation */
 .architecture-diagram {
   display: flex;
   flex-direction: column;
@@ -149,6 +333,25 @@
   padding: var(--spacing-xl);
   background-color: var(--background-alt);
   border-radius: var(--radius-lg);
+  position: relative;
+}
+
+/* CSS-Only Data Flow Animation */
+.architecture-diagram::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, 
+    transparent 0%, 
+    var(--primary-color) 10%, 
+    var(--primary-color) 90%, 
+    transparent 100%
+  );
+  transform: translateX(-50%);
+  opacity: 0.3;
 }
 
 .architecture-layer {
@@ -160,12 +363,40 @@
   border-radius: var(--radius-lg);
   text-align: center;
   box-shadow: var(--shadow-md);
-  transition: all var(--transition-base);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  animation: slideInScale 0.6s ease-out both;
+}
+
+.architecture-layer:nth-child(1) { animation-delay: 0.1s; }
+.architecture-layer:nth-child(2) { animation-delay: 0.3s; }
+.architecture-layer:nth-child(3) { animation-delay: 0.5s; }
+.architecture-layer:nth-child(4) { animation-delay: 0.7s; }
+.architecture-layer:nth-child(5) { animation-delay: 0.9s; }
+
+.architecture-layer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-lg);
+  padding: 2px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.5), transparent);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.architecture-layer:hover::before {
+  opacity: 1;
 }
 
 .architecture-layer:hover {
-  transform: scale(1.02);
-  box-shadow: var(--shadow-lg);
+  transform: scale(1.05);
+  box-shadow: 
+    0 20px 60px rgba(79, 70, 229, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.2);
 }
 
 .architecture-layer h4 {
@@ -183,9 +414,10 @@
   font-size: var(--text-2xl);
   color: var(--primary-color);
   font-weight: 700;
+  animation: bounceArrow 2s ease-in-out infinite;
 }
 
-/* Capabilities Grid */
+/* Capabilities Grid with Reveal Animation */
 .capabilities-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -201,17 +433,50 @@
   background-color: var(--background-alt);
   border-radius: var(--radius-lg);
   border: 2px solid var(--border-color);
-  transition: all var(--transition-base);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.capability-item:nth-child(1) { animation-delay: 0.1s; }
+.capability-item:nth-child(2) { animation-delay: 0.2s; }
+.capability-item:nth-child(3) { animation-delay: 0.3s; }
+.capability-item:nth-child(4) { animation-delay: 0.4s; }
+.capability-item:nth-child(5) { animation-delay: 0.5s; }
+.capability-item:nth-child(6) { animation-delay: 0.6s; }
+
+.capability-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 0;
+  background: linear-gradient(180deg, var(--primary-color), var(--primary-light));
+  transition: height 0.4s ease;
+}
+
+.capability-item:hover::before {
+  height: 100%;
 }
 
 .capability-item:hover {
   border-color: var(--primary-light);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-lg);
+  transform: translateX(5px);
 }
 
 .capability-icon {
   font-size: 2rem;
   flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.capability-item:hover .capability-icon {
+  transform: scale(1.15) rotate(5deg);
+  animation: wiggle 0.5s ease;
 }
 
 .capability-content {
@@ -223,6 +488,11 @@
   font-weight: 700;
   color: var(--text-primary);
   margin-bottom: var(--spacing-xs);
+  transition: color 0.3s ease;
+}
+
+.capability-item:hover .capability-content h4 {
+  color: var(--primary-color);
 }
 
 .capability-content p {
@@ -231,10 +501,12 @@
   line-height: 1.6;
 }
 
-/* CTA Section */
+/* CTA Section with Animated Background */
 .about-cta {
   margin-top: var(--spacing-2xl);
-  animation: fadeIn 0.8s ease-out;
+  margin-bottom: var(--spacing-md);
+  animation: fadeIn 1s ease-out;
+  position: relative;
 }
 
 .cta-content {
@@ -244,18 +516,57 @@
   padding: var(--spacing-2xl);
   text-align: center;
   box-shadow: var(--shadow-xl);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated Gradient Overlay */
+.cta-content::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent 50%);
+  animation: rotate 15s linear infinite;
+  pointer-events: none;
+}
+
+/* Floating Particles */
+.cta-content::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(2px 2px at 20% 30%, rgba(255, 255, 255, 0.3), transparent),
+    radial-gradient(2px 2px at 60% 70%, rgba(255, 255, 255, 0.3), transparent),
+    radial-gradient(2px 2px at 80% 10%, rgba(255, 255, 255, 0.3), transparent),
+    radial-gradient(2px 2px at 40% 80%, rgba(255, 255, 255, 0.3), transparent);
+  background-size: 200% 200%;
+  animation: particleFloat 20s ease-in-out infinite;
+  pointer-events: none;
 }
 
 .cta-title {
   font-size: var(--text-3xl);
   font-weight: 700;
   margin-bottom: var(--spacing-md);
+  position: relative;
+  z-index: 1;
+  animation: fadeInDown 0.8s ease-out;
 }
 
 .cta-text {
   font-size: var(--text-lg);
   margin-bottom: var(--spacing-xl);
   opacity: 0.9;
+  position: relative;
+  z-index: 1;
+  animation: fadeIn 1s ease-out 0.2s both;
 }
 
 .cta-button {
@@ -263,23 +574,259 @@
   padding: 1rem 2rem;
   font-size: var(--text-lg);
   font-weight: 700;
-  background-color: #000000; /* Black */
-  color: #ffffff; /* White text */
+  background-color: #000000;
+  color: #ffffff;
   text-decoration: none;
   border-radius: var(--radius-full);
-  transition: all var(--transition-base);
-  box-shadow: var(--shadow-lg);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.cta-button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+.cta-button:hover::before {
+  width: 300px;
+  height: 300px;
 }
 
 .cta-button:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-xl);
-  background-color: #1a1a1a; /* Slightly lighter black on hover */
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
+  background-color: #1a1a1a;
 }
 
+.cta-button:active {
+  transform: translateY(-1px) scale(1.02);
+}
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+  }
+  25% {
+    transform: translateY(-20px) translateX(10px);
+  }
+  50% {
+    transform: translateY(0) translateX(-10px);
+  }
+  75% {
+    transform: translateY(20px) translateX(10px);
+  }
+}
+
+@keyframes laptopFloat {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-10px);
+  }
+}
+
+@keyframes documentFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-5px) rotate(2deg);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes bounceArrow {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+}
+
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% center;
+  }
+  50% {
+    background-position: 100% center;
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes expandWidth {
+  from {
+    width: 0;
+  }
+  to {
+    width: 60px;
+  }
+}
+
+@keyframes wiggle {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(5deg);
+  }
+  75% {
+    transform: rotate(-5deg);
+  }
+}
+
+@keyframes particleFloat {
+  0%, 100% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+}
+
+/* Scroll-triggered Animation Class */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
+}
+
+.animate-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
+  .about-page::before,
+  .about-page::after {
+    width: 300px;
+    height: 300px;
+  }
+
+  .about-hero::before {
+    width: 120px;
+    height: 70px;
+    top: -80px;
+  }
+
+  .about-hero::after {
+    width: 140px;
+    top: -10px;
+  }
+
   .about-container {
     padding: var(--spacing-lg) var(--spacing-md);
   }
@@ -308,9 +855,17 @@
   .capabilities-grid {
     grid-template-columns: 1fr;
   }
+
+  .tech-card:hover {
+    transform: translateY(-5px) rotateX(0deg);
+  }
   
   .architecture-diagram {
     padding: var(--spacing-lg);
+  }
+
+  .architecture-layer {
+    max-width: 100%;
   }
   
   .cta-content {
@@ -323,5 +878,21 @@
   
   .cta-text {
     font-size: var(--text-base);
+  }
+
+  .highlight-section .section-content::after {
+    width: 40px;
+    height: 50px;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
